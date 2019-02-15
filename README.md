@@ -1,0 +1,2 @@
+# core
+Kapitalist core library
