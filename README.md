@@ -1,2 +1,3 @@
-# core
-Kapitalist core library
+# [kapitalist] - types
+
+Nothing to see here (yet)..
