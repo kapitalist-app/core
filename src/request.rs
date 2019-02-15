@@ -1,7 +1,7 @@
 use chrono::NaiveDateTime;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct UserCreationRequest {
     pub email: String,
     pub password: String,
@@ -9,7 +9,7 @@ pub struct UserCreationRequest {
     pub name: Option<String>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct UserUpdateRequest {
     #[serde(default)]
     pub email: Option<String>,
@@ -19,13 +19,13 @@ pub struct UserUpdateRequest {
     pub name: Option<String>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct TokenRequest {
     pub email: String,
     pub password: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct WalletCreationRequest {
     pub name: String,
     pub wallet_type: String,
@@ -33,7 +33,7 @@ pub struct WalletCreationRequest {
     pub color: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct WalletUpdateRequest {
     #[serde(default)]
     pub name: Option<String>,
@@ -43,7 +43,7 @@ pub struct WalletUpdateRequest {
     pub color: Option<String>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct CategoryCreationRequest {
     pub name: String,
     #[serde(default)]
@@ -51,7 +51,7 @@ pub struct CategoryCreationRequest {
     pub color: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct CategoryUpdateRequest {
     #[serde(default)]
     pub name: Option<String>,
@@ -61,7 +61,7 @@ pub struct CategoryUpdateRequest {
     pub color: Option<String>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct TransactionCreationRequest {
     pub wallet_id: i64,
     pub category_id: i64,
@@ -70,7 +70,7 @@ pub struct TransactionCreationRequest {
     pub ts: Option<NaiveDateTime>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct TransactionUpdateRequest {
     #[serde(default)]
     pub wallet_id: Option<i64>,
