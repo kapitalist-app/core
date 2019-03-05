@@ -15,7 +15,7 @@ pub struct UserCreationRequest {
     pub password: String,
     /// The name that the user entered
     ///
-    /// May be null in which case the email is used as the name.
+    /// May be `None` in which case the email is used as the name.
     #[serde(default)]
     pub name: Option<String>,
 }
@@ -64,7 +64,9 @@ pub struct WalletCreationRequest {
     /// Initial balance of the wallet to create
     pub balance: i64,
     /// (Background) Color of the wallet to create
-    pub color: String,
+    ///
+    /// May be `None` in which case a random color is assigned
+    pub color: Option<String>,
 }
 
 /// Request to update an existing wallet
@@ -163,4 +165,35 @@ pub struct TransactionUpdateRequest {
     /// The new timestamp of the transaction or `None` if the timestamp should remain unchanged
     #[serde(default)]
     pub ts: Option<NaiveDateTime>,
+}
+
+impl UserUpdateRequest {
+    /// Checks whether the request is valid, i.e., at least one field is set
+    pub fn is_valid(&self) -> bool {
+        !(self.email.is_none() && self.password.is_none() && self.name.is_none())
+    }
+}
+
+impl WalletUpdateRequest {
+    /// Checks whether the request is valid, i.e., at least one field is set
+    pub fn is_valid(&self) -> bool {
+        !(self.name.is_none() && self.wallet_type.is_none() && self.color.is_none())
+    }
+}
+
+impl CategoryUpdateRequest {
+    /// Checks whether the request is valid, i.e., at least one field is set
+    pub fn is_valid(&self) -> bool {
+        !(self.name.is_none() && self.parent_id.is_none() && self.color.is_none())
+    }
+}
+
+impl TransactionUpdateRequest {
+    /// Checks whether the request is valid, i.e., at least one field is set
+    pub fn is_valid(&self) -> bool {
+        !(self.wallet_id.is_none()
+            && self.category_id.is_none()
+            && self.amount.is_none()
+            && self.ts.is_none())
+    }
 }
