@@ -1,7 +1,7 @@
 [package]
 name = "kapitalist_types"
 description = "Shared types for Kapitalist backend and frontends"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["The kapitalist-app developers"]
 license = "MIT/Apache-2.0"
 readme = "README.md"
