@@ -62,7 +62,7 @@ pub struct WalletCreationRequest {
     /// Currently this is a `String` but it might be changed to an `enum` in the future.
     pub wallet_type: String,
     /// Initial balance of the wallet to create
-    pub balance: i64,
+    pub balance: Option<i64>,
     /// (Background) Color of the wallet to create
     ///
     /// May be `None` in which case a random color is assigned
