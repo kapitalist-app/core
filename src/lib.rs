@@ -1,5 +1,5 @@
 #![deny(clippy::pedantic, missing_docs)]
-#![allow(clippy::option_option, clippy::stutter)]
+#![allow(clippy::module_name_repetitions, clippy::option_option)]
 
 //! Shared types for Kapitalist backend and frontends.
 
