@@ -5,6 +5,7 @@
 
 // XXX: Include more responses that currently live in the backend
 
+use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 
 /// Response containing the version of the backend
@@ -22,6 +23,37 @@ pub struct VersionResponse {
 pub struct TokenResponse {
     /// Authentication token
     pub token: String,
+}
+
+/// Response containing details of a User
+#[derive(Debug, Deserialize, Serialize)]
+pub struct UserResponse {
+    /// User's current email address
+    pub email: String,
+    /// User's current username
+    pub username: String,
+    /// Creation timestamp of the user's account
+    pub created_at: NaiveDateTime,
+}
+
+/// Response containing details of a Wallet
+#[derive(Debug, Deserialize, Serialize)]
+pub struct WalletResponse {
+    /// (Database) Id of the wallet
+    ///
+    /// Clients need this to reference the Wallet in a request
+    pub id: i64,
+    /// User chosen name of the Wallet
+    pub name: String,
+    // XXX: Make this an enum
+    /// Type of the Wallet, e.g., credit-card, checking account etc.
+    pub wallet_type: String,
+    /// Current balance of the Wallet
+    pub current_balance: i64,
+    /// User chosen color of the wallet to represent it in client applications
+    pub color: String,
+    /// Timestamp when the Wallet was created
+    pub created_at: NaiveDateTime,
 }
 
 /// Generic error response with an error message indicating what went wrong
