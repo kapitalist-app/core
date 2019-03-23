@@ -1,4 +1,4 @@
-//! Response types that are returned from the backend.
+//! Responses that are returned from the backend.
 //!
 //! All responses derive both `serde::Serialize` and `serde::Deserialize` to allow conversion from
 //! and to JSON in both backend and frontends.
