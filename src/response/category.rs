@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 pub struct CategoryResponse {
     /// (Database) Id of the Category
     ///
-    /// Clients need this to reference the Wallet in a request
+    /// Clients need this to reference the Category in a request
     pub id: i64,
     /// (Database) Id of the parent Category (may be `None`)
     pub parent_id: Option<i64>,
