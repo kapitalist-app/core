@@ -8,12 +8,14 @@
 mod error;
 
 mod category;
+mod transaction;
 mod user;
 mod wallet;
 
 pub use crate::response::error::*;
 
 pub use crate::response::category::*;
+pub use crate::response::transaction::*;
 pub use crate::response::user::*;
 pub use crate::response::wallet::*;
 
